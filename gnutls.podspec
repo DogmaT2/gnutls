@@ -1,37 +1,33 @@
-#
-# Be sure to run `pod lib lint NAME.podspec' to ensure this is a
-# valid spec and remove all comments before submitting the spec.
-#
-# To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html
-#
 Pod::Spec.new do |s|
-  s.name             = "gnutls"
-  s.version          = "0.1.0"
-  s.summary          = "A short description of gnutls."
-  s.description      = <<-DESC
-                       An optional longer description of gnutls
+  s.name         = "gnutls"
+  s.version      = "3.2.9"
+  s.summary      = "The GnuTLS Transport Layer Security Library"
+  s.description  = <<-DESC
+GnuTLS is a secure communications library implementing the SSL, TLS and DTLS protocols and technologies around them. It provides a simple C language application programming interface (API) to access the secure communications protocols as well as APIs to parse and write X.509, PKCS #12, OpenPGP and other required structures. It is aimed to be portable and efficient with focus on security and interoperability.
 
-                       * Markdown format.
-                       * Don't worry about the indent, we strip it!
-                       DESC
-  s.homepage         = "http://EXAMPLE/NAME"
-  s.screenshots      = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
-  s.license          = 'MIT'
-  s.author           = { "waTeim" => "truthset@gmail.com" }
-  s.source           = { :git => "http://EXAMPLE/NAME.git", :tag => s.version.to_s }
-  s.social_media_url = 'https://twitter.com/EXAMPLE'
+Features
+Support for TLS 1.2, TLS 1.1, TLS 1.0, and SSL 3.0 protocols
+Support for DTLS 1.2, and DTLS 1.0, protocols
+Support for certificate path validation, as well as DANE and trust on first use.
+Support for the Online Certificate Status Protocol (OCSP).
+Support for multiple certificate types including X.509 and OpenPGP certificates.
+Support for public key methods, including RSA and Elliptic curves, as well as password and key authentication methods such as SRP and PSK protocols.
+Support for all the strong encryption algorithms, including AES and Camellia.
+Support for CPU-assisted cryptography with VIA padlock and AES-NI instruction sets.
+Support for cryptographic accelerator drivers via /dev/crypto.
+Supports natively cryptographic tokens such as smart-cards, via PKCS #11 and the Trusted Platform Module (TPM).
+Runs on most Unix platforms and Windows.
+                   DESC
+  s.homepage     = "http://www.gnutls.org/"
+  s.screenshots  = 
+  s.license      = 'LPGL'
+  s.author       = { "waTeim" => "truthset@gmail.com" }
+  s.source       = { :git => "https://github.com/waTeim/gnutls.git", :tag => s.version.to_s }
 
-  # s.platform     = :ios, '5.0'
-  # s.ios.deployment_target = '5.0'
-  # s.osx.deployment_target = '10.7'
-  s.requires_arc = true
-
-  s.source_files = 'Classes'
-  s.resources = 'Assets/*.png'
-
-  s.ios.exclude_files = 'Classes/osx'
-  s.osx.exclude_files = 'Classes/ios'
-  # s.public_header_files = 'Classes/**/*.h'
-  # s.frameworks = 'SomeFramework', 'AnotherFramework'
-  # s.dependency 'JSONKit', '~> 1.4'
+  s.platform     = :osx, '10.6'
+  s.requires_arc = false
+  s.vendored_libraries = 'lib/*.a'
+  s.source_files = s.public_header_files =
+     'include/**/*.h'
+  s.header_mappings_dir = 'include'
 end
