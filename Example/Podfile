@@ -1,0 +1,7 @@
+pod "gnutls", :path => "../gnutls.podspec"
+
+target "Demo" do
+end
+
+target "DemoTests" do
+end
