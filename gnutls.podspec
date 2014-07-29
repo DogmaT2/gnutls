@@ -19,15 +19,14 @@ Supports natively cryptographic tokens such as smart-cards, via PKCS #11 and the
 Runs on most Unix platforms and Windows.
                    DESC
   s.homepage     = "http://www.gnutls.org/"
-  s.screenshots  = 
   s.license      = 'LPGL'
   s.author       = { "waTeim" => "truthset@gmail.com" }
   s.source       = { :git => "https://github.com/waTeim/gnutls.git", :tag => s.version.to_s }
-
   s.platform     = :osx, '10.6'
   s.requires_arc = false
   s.vendored_libraries = 'lib/*.a'
-  s.source_files = s.public_header_files =
+  s.xcconfig = { 'HEADER_SEARCH_PATHS' => '"$(PODS_ROOT)/gnutls/include"' }
+  s.private_header_files = s.source_files =
      'include/**/*.h'
   s.header_mappings_dir = 'include'
 end
